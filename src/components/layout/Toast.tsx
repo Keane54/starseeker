@@ -10,7 +10,7 @@ interface ToastProps {
 
 export default function Toast({ children, afterClose }: ToastProps) {
     const [open, setOpen] = useState(false)
-    // Track timeout in a ref to stop prevent rerenders
+    // Track timeout in a ref to prevent rerenders
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
     useEffect(() => {
@@ -29,6 +29,7 @@ export default function Toast({ children, afterClose }: ToastProps) {
 
     const closeToast = () => {
         setOpen(false)
+        
         if (afterClose) {
             timeoutRef.current = setTimeout(() => {
                 afterClose()
