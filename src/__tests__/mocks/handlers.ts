@@ -67,7 +67,7 @@ export const handlers = [
             ]
         })
     }),
-    http.get<{ distance: string, passengers: string, parking: string }, null, GetTransportResponse>(`${API_URL}/transport/:distance`, () => {
+    http.get<{ distance: string }, null, GetTransportResponse>(`${API_URL}/transport/:distance`, () => {
         return HttpResponse.json({
             currency: 'GBP',
             journeyCost: 100,
